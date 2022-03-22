@@ -43,7 +43,7 @@ function App() {
               onKeyUp={(e) => {
                 setTimeout(() => {
                   setSearchCity(e.target.value)
-                }, 500);
+                }, 1000);
 
               }} />
           </div>

@@ -1,0 +1,71 @@
+.nextDayList {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nextDayList li {
+    width: 50%;
+}
+
+.nextdayTemp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nextdayTemp .dayName,
+.nextdayTemp img,
+.nextdayTemp .maxFehrn {
+    margin-bottom: 20px;
+}
+
+.nextdayTemp .dayName {
+    padding: 5px 15px;
+    background: #00061a99;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.nextdayTemp img {
+    max-width: 75px;
+    height: 45px;
+}
+
+.nextdayTemp .maxFehrn {
+    font-size: 30px;
+}
+
+@media (min-width: 450px) {
+    .nextDayList li {
+        width: 33%;
+    }
+}
+@media (min-width: 600px) {
+    .nextDayList li {
+        width: 25%;
+    }
+}
+
+@media (min-width: 992px) {
+    .nextDayList {
+        flex-wrap: nowrap;
+    }
+
+    .nextDayList li {
+        margin-right: 25px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nextdayTemp .dayName {
+        padding: 8px 20px;
+        font-size: 18px;
+    }
+    .nextdayTemp .maxFehrn {
+        font-size: 40px;
+    }
+}

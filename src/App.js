@@ -1,25 +1,60 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import CityInfo from './components/CityInfo';
+import { NextDayList } from './components/NextDayList';
+import { Today } from './components/Today';
 
 function App() {
+
+  const [json, setJson] = useState()
+  const [searchCity, setSearchCity] = useState('london')
+
+  let currentDay, nextDays
+
+  const init = () => {
+    currentDay = json.currentConditions
+    nextDays = json.next_days
+  }
+
+
+  const fetchWeather = () => {
+    fetch(`https://weatherdbi.herokuapp.com/data/weather/${searchCity}`)
+      .then(res => res.json())
+      .then(json => setJson(json))
+  }
+
+  useEffect(() => {
+    fetchWeather()
+  }, [searchCity])
+
+
+
+  json && init()
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {json &&
+        <div className="weatherInfo">
+          <CityInfo data={json} />
+          <div className='citySearch'>
+            <input type="text"
+              placeholder='Search for a city'
+              onKeyUp={(e) => {
+                setTimeout(() => {
+                  setSearchCity(e.target.value)
+                }, 500);
+
+              }} />
+          </div>
+          <div className="predections">
+            <Today currentDay={currentDay} />
+            <NextDayList nextDays={nextDays} />
+          </div>
+        </div>
+      }
     </div>
-  );
+  )
 }
 
 export default App;

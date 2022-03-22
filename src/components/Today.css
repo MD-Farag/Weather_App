@@ -1,0 +1,73 @@
+.todayTemp {
+    display: flex;
+    margin-bottom: 75px;
+    justify-content: space-evenly;
+}
+
+.todayTemp img {
+    max-width: 50%;
+}
+
+.todayTemp .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.todayTemp .dayName {
+    padding: 7px 18px;
+    background: #00061a99;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.todayTemp .fehrn {
+    font-size: 40px;
+}
+
+@media (min-width: 450px) {
+    .todayTemp {
+        justify-content: flex-start;
+    }
+    .todayTemp .data {
+        align-items: flex-end;
+    }
+}
+
+@media (min-width: 768px) {
+    .todayTemp {
+        display: flex;
+        height: 150px;
+        align-items: center;
+        max-width: 250px;
+        color: #fff;
+        margin-bottom: 25%;
+    }
+
+    .todayTemp .icon {
+        max-height: 100%;
+    }
+
+    .todayTemp img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .todayTemp .data {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .todayTemp .dayName {
+        padding: 10px 25px;
+        font-size: 20px;
+    }
+
+    .todayTemp .fehrn {
+        font-size: 50px;
+    }
+}
